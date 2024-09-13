@@ -1,0 +1,4 @@
+{
+    "files.autoSave": "afterDelay",  // 设置为自动保存
+    "files.autoSaveDelay": 200      // 自动保存的延迟时间，单位为毫秒
+}
