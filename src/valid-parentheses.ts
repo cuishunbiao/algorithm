@@ -2,16 +2,16 @@
 
 
 function isValid(s: string): boolean {
-    const model: any = {
-        ']': '[',
-        '}': '{',
-        ')': '('
+    const model: { [key: string]: string } = {
+        '[': ']',
+        '{': '}',
+        '(': ')'
     }
     const stack: string[] = []
     // If has current key, then pop of array, both different return false
     for (let item of s) {
-        if (item in model) {
-            if (model.hasOwnProperty(item)) {
+        if (model[item]) {
+            if (model[item] !== stack.pop()) {
                 return false;
             }
         } else {
