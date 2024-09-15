@@ -1,4 +1,6 @@
 {
-    "files.autoSave": "afterDelay",  // 设置为自动保存
-    "files.autoSaveDelay": 200      // 自动保存的延迟时间，单位为毫秒
+    "editor.formatOnSave": true,                      // 保存时自动格式化
+    "editor.defaultFormatter": "esbenp.prettier-vscode", // 使用 Prettier 作为默认格式化工具
+    "debug.internalConsoleOptions": "openOnSessionStart",  // 设置在启动调试时自动打开 Debug Console 面板
+    "prettier.configPath": ".prettierrc"              // 确保 Prettier 使用项目根目录的配置文件
 }
