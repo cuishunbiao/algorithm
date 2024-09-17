@@ -6,7 +6,7 @@
         "request": "launch",
         "name": "Launch Program",
         "skipFiles": ["<node_internals>/**"],
-        "program": "${workspaceFolder}/src/repeated-substring-pattern.ts",
+        "program": "${workspaceFolder}/src/longest-common-prefix.ts",
         "preLaunchTask": "tsc: build - tsconfig.json",
         "outFiles": ["${workspaceFolder}/dist/**/*.js"]
       }

@@ -3,10 +3,10 @@ function lengthOfLongestSubstring(s: string): number {
     let maxLen = 0;
     let start = 0; // 滑动窗口起始位置
 
-    for(let end = 0; end < s.length; end++) {
+    for (let end = 0; end < s.length; end++) {
         const char = s[end]
         // 如果当前字符已经存在于 map 中，且它的位置在 start 之后；
-        if(map.has(char) && map.get(char) >= start){
+        if (map.has(char) && map.get(char) >= start) {
             // 更新 start，跳过重复字符
             start = map.get(char) + 1;
         }
