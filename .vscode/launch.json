@@ -6,7 +6,7 @@
         "request": "launch",
         "name": "Launch Program",
         "skipFiles": ["<node_internals>/**"],
-        "program": "${workspaceFolder}/src/longest-common-prefix.ts",
+        "program": "${workspaceFolder}/src/backspace-string-compare.ts",
         "preLaunchTask": "tsc: build - tsconfig.json",
         "outFiles": ["${workspaceFolder}/dist/**/*.js"]
       }
