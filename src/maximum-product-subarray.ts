@@ -1,15 +1,22 @@
+
 function maxProduct(nums: number[]): number {
-    const len = nums.length
-    if (len === 1) return nums[0];
-
-    let result = -Infinity
-
-    // left, right
-    // 如果前面的结果，小于当前 nums[i] 的值，则直接更新  left right
-
-
-
-    return 0
+    let maxProduct = nums[0];
+    let minProduct = nums[0];
+    let globalMax = nums[0];
+    for (let i = 1; i < nums.length; i++) {
+        const numsi = nums[i]
+        if (numsi === 0) {
+            maxProduct = 0
+            minProduct = 0
+        } else {
+            const tempMax = maxProduct;
+            maxProduct = Math.max(numsi, maxProduct * numsi, minProduct * numsi);
+            minProduct = Math.min(numsi, tempMax * numsi, minProduct * numsi);
+        }
+        globalMax = Math.max(globalMax, maxProduct)
+    }
+    return globalMax
 };
-const nums_arr = [2, 3, -2, 4]
+
+const nums_arr = [2, 3, -1, 4, 8]
 console.log(maxProduct(nums_arr));
