@@ -6,7 +6,7 @@
             "request": "launch",
             "name": "Launch Program",
             "skipFiles": ["<node_internals>/**"],
-            "program": "${workspaceFolder}/src/search-in-rotated-sorted-array.ts",
+            "program": "${workspaceFolder}/src/maximum-subarray.ts",
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": ["${workspaceFolder}/dist/**/*.js"]
         }

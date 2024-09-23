@@ -1,25 +1,32 @@
+
 function search(nums: number[], target: number): number {
-    /**
-     * 旋转处是 transformNumber =  nums[0] - 1;
-     * 获取数组长度，判断截断的起点
-     * 判断 target 比 transformNumber 大，说明需要正向搜索，如果小，则需要倒序搜索
-     * 
-     * 
-     * */
+    let left = 0;
+    let right = nums.length - 1;
+    while (left <= right) {
+        let mid = Math.floor((left + right) / 2)
 
-    const transformNumber = nums[0] - 1;
+        // Check if mid is the target
+        if (nums[mid] === target) return mid;
 
-    0
-
-    // 正向搜索
-    const frontSearch = (start: number, end: number) => {
-        for (let i = 0; i < end; i++) {
-            console.log(nums[i]);
-            if (nums[i] === target) return i;
+        // Determine which half is sorted
+        if (nums[left] <= nums[mid]) {
+            // Left half is sorted
+            if (nums[left] <= target && target < nums[mid]) {
+                // Target is in the left half 
+                right = mid - 1
+            } else {
+                left = mid + 1
+            }
+        } else {
+            // Right half is sorted
+            if (nums[mid] < target && target <= nums[right]) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
         }
-        return -1;
     }
-
+    return -1
 };
 
 const nums6 = [4, 5, 6, 7, 0, 1, 2], target6 = 0
