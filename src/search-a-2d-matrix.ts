@@ -1,35 +1,35 @@
-function searchMatrix(matrix: number[][], target: number): boolean {
-    /**
-     * 先确定行：大于每行第 1 个，并且小于下一行第 1 个，可以取出行。
-     * 拿到这一行，做二分查找
-     */
 
-    // 先确定是哪行
-    for (let i = 0; i < matrix.length; i++) {
-        debugger
-        if (matrix[i][0] <= target && target < matrix[i + 1][0]) {
-            findNumber(matrix[i])
-            break
+function searchMatrix(matrix: number[][], target: number): Boolean {
+    let left = 0, right = matrix.length - 1, subLen = matrix[0].length - 1;
+    while (left <= right) {
+        let middle = Math.floor((left + right) / 2)
+        if (matrix[middle][0] <= target && target <= matrix[middle][subLen]) {
+            return findNumber(matrix[middle])
+        }
+        if (matrix[middle][0] < target) {
+            left = middle + 1;
+        } else {
+            right = middle - 1;
         }
     }
 
-    function findNumber(nums: number[]): boolean {
+    function findNumber(nums: number[]): Boolean {
         const len = nums.length
-        let left = 0, right = len - 1, middle = Math.floor((left + right) / 2);
-
+        let left = 0, right = len - 1;
         while (left <= right) {
-            if (target < nums[middle]) {
-                right = middle
+            let middle = Math.floor((left + right) / 2);
+            if (target === nums[middle]) {
+                return true
+            } else if (nums[middle] < target) {
+                left = middle + 1;
             } else {
-                left = middle
+                right = middle - 1;
             }
         }
-
         return false;
     }
-
-    return true
+    return false;
 };
 
-const matrix = [[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]], target1 = 3
+const matrix = [[1]], target1 = 1
 console.log(searchMatrix(matrix, target1));
