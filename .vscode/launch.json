@@ -6,7 +6,7 @@
             "request": "launch",
             "name": "Launch Program",
             "skipFiles": ["<node_internals>/**"],
-            "program": "${workspaceFolder}/src/partition-equal-subset-sum.ts",
+            "program": "${workspaceFolder}/src/climbing-stairs1.ts",
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": ["${workspaceFolder}/dist/**/*.js"]
         }
