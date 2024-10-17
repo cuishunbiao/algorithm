@@ -12,11 +12,11 @@
  * }
  */
 
-function levelOrder(root: TreeNode | null): number[][] {
+// function levelOrder(root: TreeNode | null): number[][] {
 
 
 
-};
+// };
 
-const root = [3, 9, 20, null, null, 15, 7]
-console.log(levelOrder(root));
+// const root = [3, 9, 20, null, null, 15, 7]
+// console.log(levelOrder(root));
