@@ -205,29 +205,62 @@ function createBinaryTreeFromArray(arr: (number | null)[]): TreeNode | null {
 // ------------------------------------------------------------------------------------------------
 
 
-function kthSmallest(root: TreeNode | null, k: number): number | null {
-    let count = 0;
-    let result: number | null = null;
+// function kthSmallest(root: TreeNode | null, k: number): number | null {
+//     let count = 0;
+//     let result: number | null = null;
 
-    function inOrder(node: TreeNode | null): void {
-        if (node === null || result !== null) return;// Base case: null node or found result
+//     function inOrder(node: TreeNode | null): void {
+//         if (node === null || result !== null) return;// Base case: null node or found result
 
-        inOrder(node.left); // Visit left subtree
+//         inOrder(node.left); // Visit left subtree
 
-        // Visit the current node
-        count++;
+//         // Visit the current node
+//         count++;
 
-        if (count === k) {
-            result = node.val;
-            return;
+//         if (count === k) {
+//             result = node.val;
+//             return;
+//         }
+
+//         inOrder(node.right); // Visit right subtree
+//     }
+
+//     inOrder(root); // Start in-order traversal from root
+//     return result;
+// };
+
+// const root = createBinaryTreeFromArray([3, 1, 4, null, 2]), k1 = 1;
+// console.log(kthSmallest(root, k1));
+
+// ------------------------------------------------------------------------------------------------
+
+function pathSum(root: TreeNode | null, targetSum: number): number[][] {
+    const result: number[][] = []
+    const currentPath: number[] = []
+
+    function dfs(node: TreeNode | null, remainingSum: number) {
+        if (!node) return;
+
+        // Add the current node to the path
+        currentPath.push(node.val)
+
+        // Check if it's a leaf and the path sum equals targetSum
+        if (!node.left && !node.right && remainingSum === node.val) {
+            result.push([...currentPath])
         }
 
-        inOrder(node.right); // Visit right subtree
+        // Traverse left and right children
+        dfs(node.left, remainingSum - node.val)
+        dfs(node.right, remainingSum - node.val)
+
+        // Backtrack: remove the current node from the path
+        currentPath.pop();
     }
 
-    inOrder(root); // Start in-order traversal from root
-    return result;
+    dfs(root, targetSum)
+    return result
 };
 
-const root = createBinaryTreeFromArray([3, 1, 4, null, 2]), k1 = 1;
-console.log(kthSmallest(root, k1));
+const root = createBinaryTreeFromArray([5, 4, 8, 11, null, 13, 4, 7, 2, null, null, 5, 1]), targetSum = 22
+console.log(pathSum(root, targetSum));
+
