@@ -2,17 +2,16 @@
 function singleNumber(nums: number[]): number {
     const map = new Map<number, number>();
     for (let num of nums) {
-        if (map.has(num)) {
-            map.set(num, (map.get(num) || 1) + 1);
-        } else {
-            map.set(num, 1);
-        }
+        map.set(num, (map.get(num) || 0) + 1);
     }
     for (let item of map.keys()) {
-        if (map.has(item) && map.get(item) < 3) {
+        const num = map.get(item) as number;
+        if (num < 3) {
+            return item
         }
     };
+    return -1
+}
 
-    const nums24 = [2, 2, 3, 2]
-    console.log(singleNumber(nums24));
-
+const nums24 = [0, 1, 0, 1, 0, 1, 99]
+console.log(singleNumber(nums24));
