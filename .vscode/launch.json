@@ -6,7 +6,7 @@
             "request": "launch",
             "name": "Launch Program",
             "skipFiles": ["<node_internals>/**"],
-            "program": "${workspaceFolder}/src/angle-between-hands-of-a-clock.ts",
+            "program": "${workspaceFolder}/src/course-schedule.ts",
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": ["${workspaceFolder}/dist/**/*.js"]
         }
