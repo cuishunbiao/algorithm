@@ -17,7 +17,6 @@ class Trie {
     // 插入单词到 Trie 中
     insert(word: string): void {
         let current = this.root;
-        debugger
         for (const char of word) {
             if (!current.children.has(char)) {
                 current.children.set(char, new TrieNode());
@@ -31,7 +30,6 @@ class Trie {
     // 查找 Trie 中的某个单词
     search(word: string): boolean {
         let current = this.root;
-        debugger
         for (const char of word) {
             if (!current.children.has(char)) {
                 console.log(`word not found: ${word}`)
@@ -46,7 +44,6 @@ class Trie {
     // 查找 Trie 的某个前缀
     startsWith(prefix: string): boolean {
         let current = this.root;
-        debugger
         for (const char of prefix) {
             if (!current.children.has(char)) {
                 console.log(`Prefix not found: ${prefix}`)
