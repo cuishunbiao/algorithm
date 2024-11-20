@@ -17,34 +17,16 @@
  * 
  */
 function removeDuplicates1(nums: number[]): number {
-    // let count = 0;
-    // let slow = 0;
-
-    // for (let fast = 0; fast < nums.length; fast++) {
-    //     debugger
-    //     if (count >= 2) {
-    //         nums[slow] = nums[fast];
-    //     } else {
-    //         if (nums[slow] === nums[fast]) {
-    //             slow++;
-    //         } else {
-    //             count++;
-    //         }
-    //     }
-    // }
-    // return slow + 1;
-
-
-    let slow = 0;
+    let slow = 0; // Pointer for the next valid position
     for (let fast = 0; fast < nums.length; fast++) {
-        if (slow < 2) {
-            // 前两个数字保留
-            nums[slow] = nums[fast];
-        } else if (nums[fast] !== nums[slow - 2]) {
-            // 当前数字与前两个数不相等
+        // If it's one of the first two elements OR
+        // Current element is not the same as the element two steps before slow
+        if (slow < 2 || nums[fast] !== nums[slow - 2]) {
+            nums[slow] = nums[fast]; // Save the current element
+            slow++; // Move the slow pointer
         }
     }
-    return slow;
+    return slow; // The length of the modified array
 };
 
 const nums0003 = [1, 1, 1, 2, 2, 3]
